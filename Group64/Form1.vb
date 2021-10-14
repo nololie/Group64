@@ -27,12 +27,26 @@ Public Class frmDeseaseManagementTracker
         Dim DiseaseType As String = InputBox("H = HIV,     O = Other")
 
         If DiseaseType = "O" Or DiseaseType = "o" Then
+            Dim Name As String = InputBox("Please enter Desease Name")
             For i As Integer = 0 To Diseases.Length - 1
-
+                If Diseases(i)._Name = Name Then
+                    i = Diseases.Length
+                    MsgBox("Disease already exists")
+                ElseIf i = Diseases.Length - 1 And Diseases(i)._Name <> Name Then
+                    Diseases(Diseases.Length - 1) = New Disease(PeriodLength, Name)
+                    MsgBox("Disease successfully added")
+                End If
             Next
-            Diseases(Diseases.Length - 1) = New Disease(PeriodLength, "Malaria")
         ElseIf DiseaseType = "H" Or DiseaseType = "h" Then
-            Diseases(Diseases.Length - 1) = HIV.SingleNew(PeriodLength, "HIV")
+            For i As Integer = 0 To Diseases.Length - 1
+                If Diseases(i)._Name = "HIV" Then
+                    i = Diseases.Length
+                    MsgBox("Disease already exists")
+                ElseIf i = Diseases.Length - 1 And Diseases(i)._Name <> "HIV" Then
+                    Diseases(Diseases.Length - 1) = HIV.SingleNew(PeriodLength)
+                    MsgBox("Disease successfully added")
+                End If
+            Next
         End If
 
     End Sub
