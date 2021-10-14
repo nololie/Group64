@@ -1,13 +1,22 @@
-﻿Public MustInherit Class Disease
-    Public _noWeeks As Integer ' This will help us resize all our arrays
+﻿Public Class Disease
     Public _Name As String ' Identity reasons
     Public _noNewInfections() As Integer ' This will store the recorded infections each week
-    'Public _FullRecovery As Boolean ' This lets us know if a one can recover from a desease or not
-    'Public _Treatment() As String ' This stores the names of treatment options available for the disease
     Public _noPeopleOnTreatment() As Integer ' This stores the number Of people who started treatment each week
-    'Public _PreventionMeasures() As String ' This stores all known preventive measures for the disease
-    'Public _DiagnosticMethods() As String ' This stores all known Diagnostic methods available for the disease
     Public _noPeopleDied() As Integer ' This stores the number of people who died from the disease
+
+    Public Sub New(Period As Integer, name As String)
+        _Name = name
+
+        ReDim _noNewInfections(Period)
+        ReDim _noPeopleOnTreatment(Period)
+        ReDim _noPeopleDied(Period)
+    End Sub
+
+    Public Overridable Function Alarm() As String
+    End Function
+    Public Function DetermineTrend(array() As Integer) As String
+
+    End Function
 
 
     Public Function CalPeepNotTreated() As Integer
@@ -25,9 +34,5 @@
     Public Sub CompileReport()
 
     End Sub
-    Public Function DetermineTrend() As String
-
-    End Function
-    Public MustOverride Function Alarm() As String
 
 End Class
