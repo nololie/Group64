@@ -24,11 +24,12 @@ Partial Class frmDeseaseManagementTracker
     Private Sub InitializeComponent()
         Me.btnInitialize = New System.Windows.Forms.Button()
         Me.btnAddDisease = New System.Windows.Forms.Button()
+        Me.btnUpdateDisease = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnInitialize
         '
-        Me.btnInitialize.Location = New System.Drawing.Point(106, 100)
+        Me.btnInitialize.Location = New System.Drawing.Point(12, 12)
         Me.btnInitialize.Name = "btnInitialize"
         Me.btnInitialize.Size = New System.Drawing.Size(120, 34)
         Me.btnInitialize.TabIndex = 0
@@ -37,18 +38,28 @@ Partial Class frmDeseaseManagementTracker
         '
         'btnAddDisease
         '
-        Me.btnAddDisease.Location = New System.Drawing.Point(232, 100)
+        Me.btnAddDisease.Location = New System.Drawing.Point(138, 12)
         Me.btnAddDisease.Name = "btnAddDisease"
         Me.btnAddDisease.Size = New System.Drawing.Size(120, 34)
         Me.btnAddDisease.TabIndex = 1
         Me.btnAddDisease.Text = "Add Disease"
         Me.btnAddDisease.UseVisualStyleBackColor = True
         '
+        'btnUpdateDisease
+        '
+        Me.btnUpdateDisease.Location = New System.Drawing.Point(264, 12)
+        Me.btnUpdateDisease.Name = "btnUpdateDisease"
+        Me.btnUpdateDisease.Size = New System.Drawing.Size(120, 34)
+        Me.btnUpdateDisease.TabIndex = 2
+        Me.btnUpdateDisease.Text = "Update Disease"
+        Me.btnUpdateDisease.UseVisualStyleBackColor = True
+        '
         'frmDeseaseManagementTracker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(463, 311)
+        Me.ClientSize = New System.Drawing.Size(398, 161)
+        Me.Controls.Add(Me.btnUpdateDisease)
         Me.Controls.Add(Me.btnAddDisease)
         Me.Controls.Add(Me.btnInitialize)
         Me.Name = "frmDeseaseManagementTracker"
@@ -59,4 +70,5 @@ Partial Class frmDeseaseManagementTracker
 
     Friend WithEvents btnInitialize As Button
     Friend WithEvents btnAddDisease As Button
+    Friend WithEvents btnUpdateDisease As Button
 End Class

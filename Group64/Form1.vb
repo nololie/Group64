@@ -4,7 +4,7 @@ Option Infer Off
 ' *****************************************************************
 ' Team Number: 64
 ' Team Member 1 Details: Lefatle, LL (217007690)
-' Team Member 2 Details: Surname, Initials (Student #)
+' Team Member 2 Details: Komane, KM (219018736)
 ' Team Member 3 Details: Surname, Initials (Student #)
 ' Team Member 4 Details: e.g. Smith, J (202000001)
 ' Practical: Team Project
@@ -18,6 +18,7 @@ Public Class frmDeseaseManagementTracker
         'Input(Action)
         PeriodLength = CInt(InputBox("Enter the period length of tracking"))
         'Reaction
+        MsgBox("Successfully Initialised application")
     End Sub
 
     Private Sub btnAddDisease_Click(sender As Object, e As EventArgs) Handles btnAddDisease.Click
@@ -49,5 +50,25 @@ Public Class frmDeseaseManagementTracker
             Next
         End If
 
+    End Sub
+
+    Private Sub btnUpdateDisease_Click(sender As Object, e As EventArgs) Handles btnUpdateDisease.Click
+        Dim Name As String = InputBox("Enter the name of the desease to update.")
+
+        For i As Integer = 0 To Diseases.Length - 1
+            If Diseases(i)._Name = Name Then
+                For j As Integer = 0 To Diseases(i)._noNewInfections.Length - 1
+                    If Diseases(i)._noNewInfections(j) = Nothing Then
+                        Diseases(i)._noNewInfections(j) = CInt(InputBox("Enter the number of new infections recorded on this period"))
+                        Diseases(i)._noPeopleDied(j) = CInt(InputBox("Enter the number of new deaths recorded on this period"))
+                        Diseases(i)._noPeopleOnTreatment(j) = CInt(InputBox("Enter the number of people on medication recorded on this period"))
+
+                        If Diseases(i).GetType() Is "HIV" Then
+                            'Diseases(i)._noPeopleBornPositive() = CInt(InputBox("Enter the number of new infections recorded on this period"))
+                        End If
+                    End If
+                Next
+            End If
+        Next
     End Sub
 End Class

@@ -1,8 +1,8 @@
 ﻿Public Class HIV : Inherits Disease
     Private Shared _HIV As HIV
-    Private _noPeopleBornPositive() As Integer
-    Private _noPeopleOnPrep() As Integer
-    Private _noPeopleUndetectable() As Integer
+    Public _noPeopleBornPositive() As Integer
+    Public _noPeopleOnPrep() As Integer
+    Public _noPeopleUndetectable() As Integer
 
     Private Sub New(Period As Integer, name As String)
         MyBase.New(Period, name)
